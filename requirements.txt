@@ -1,0 +1,4 @@
+amqp
+celery
+celery-redbeat
+redis
