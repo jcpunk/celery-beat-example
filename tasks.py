@@ -3,7 +3,6 @@ import logging
 from celery import Celery
 from kombu import Connection, Exchange, Queue
 
-
 app = Celery("tasks")
 app.config_from_object("celeryconfig")
 
@@ -26,6 +25,7 @@ def add_to_amqp(self, x, y):
     logging.info(f"I AM LOG FOR `add_to_amqp` {self.request.id} - {x} + {y}")
     try:
         exchange = Exchange("example_exchange", "direct")
+        exchange = Exchange("example.exchange", "topic")
         queue = Queue("example_queue", exchange=exchange, routing_key="add")
         with Connection(broker_url) as conn:
             producer = conn.Producer(serializer="json")

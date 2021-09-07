@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 
-import time
 import sys
-
-from tasks import add, add_to_amqp, app
-from celeryconfig import broker_url, redbeat_key_prefix
+import time
 
 from celery import chain, group, schedules, signature
 from celery.result import ResultBase
 from kombu import Connection, Exchange, Queue
 from redbeat import RedBeatSchedulerEntry
+
+from celeryconfig import broker_url, redbeat_key_prefix
+from tasks import add, add_to_amqp, app
 
 print("Flower may be running at http://localhost:5555\n\n")
 
