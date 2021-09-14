@@ -127,7 +127,7 @@ print("\n\n")
 
 add_to_amqp.apply_async((7, 7), countdown=7)
 exchange = Exchange("example_exchange", "direct")
-queue = Queue("", exchange=exchange, routing_key="add")
+queue = Queue("", exchange=exchange, routing_key="add", auto_delete=True)
 with Connection(broker_url) as conn:
 
     def print_msg(body, message):

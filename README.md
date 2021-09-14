@@ -9,5 +9,7 @@ run `example.py` in another terminal
 
 look at flower on http://localhost:5555
 
+If you turn on RabbitMQ mgmt, you can check http://localhost::15672
+
 
 For distributed locking, could use the `redis.lock` classes

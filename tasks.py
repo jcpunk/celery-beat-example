@@ -24,7 +24,7 @@ def add_to_amqp(self, x, y):
     """docstring"""
     logging.info(f"I AM LOG FOR `add_to_amqp` {self.request.id} - {x} + {y}")
     exchange = Exchange("example_exchange", "direct")
-    queue = Queue("", exchange=exchange, routing_key="add")
+    queue = Queue("", exchange=exchange, routing_key="add", auto_delete=True)
     with Connection(broker_url) as conn:
         producer = conn.Producer(serializer="json")
         producer.publish(
