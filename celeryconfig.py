@@ -1,7 +1,8 @@
-broker_url = "amqp://localhost"
-result_backend = "redis://localhost:6379/0"
+# broker_url = "amqp://localhost"
+broker_url = "redis://localhost:6379/0"
+result_backend = "redis://localhost:6379/1"
 
-redbeat_redis_url = "redis://localhost:6379/1"
+redbeat_redis_url = "redis://localhost:6379/2"
 redbeat_key_prefix = "example_namespace."
 
 task_serializer = "json"
